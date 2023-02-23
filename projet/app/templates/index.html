@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <title>Index</title>
+</head>
+<body>
+    <h1> Prédiction immobilière </h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Valider</button>
+    </form>
+    <p>prix estimation :{{ result }}</p>
+
+    <table>
+        {% for row in rows %}
+            <tr>
+            {% for column in row %}
+                <td>{{ column }}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
