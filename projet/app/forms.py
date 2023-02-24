@@ -29,12 +29,12 @@ class PredictionForm(forms.Form):
         (13, 13),
         # Ajouter toutes les options de 'grade'
     ]
-    grade = forms.ChoiceField(label='Grade', choices=GRADE_CHOICES)
+    grade = forms.TypedChoiceField(coerce=int , label='Grade', choices=GRADE_CHOICES)
     
     # Définir les champs du formulaire pour les variables catégorielles
     zipcodes = sorted(df['zipcode'].unique())
     ZIPCODE_CHOICES = [(zip, zip) for zip in zipcodes]
-    zipcode = forms.ChoiceField(label='Zipcode', choices=ZIPCODE_CHOICES)
+    zipcode = forms.TypedChoiceField(coerce=int ,label='Zipcode', choices=ZIPCODE_CHOICES)
     
     CONDITION_CHOICES = [
         (1, 1),
@@ -44,7 +44,7 @@ class PredictionForm(forms.Form):
         (5, 5),
         # Ajouter toutes les options de 'condition'
     ]
-    condition = forms.ChoiceField(label='Condition', choices=CONDITION_CHOICES)
+    condition = forms.TypedChoiceField(coerce=int ,label='Condition', choices=CONDITION_CHOICES)
     
     VIEW_CHOICES = [
         (0, 0),
@@ -54,6 +54,6 @@ class PredictionForm(forms.Form):
         (4, 4),
         # Ajouter toutes les options de 'view'
     ]
-    view = forms.ChoiceField(label='View', choices=VIEW_CHOICES)
+    view = forms.TypedChoiceField(coerce=int , label='View', choices=VIEW_CHOICES)
    
         

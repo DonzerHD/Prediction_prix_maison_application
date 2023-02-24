@@ -22,15 +22,15 @@ X = df.drop(['price'], axis=1)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 
 # On cree un pipeline de preprocessing pour les variables numériques
-numeric_features = ['bedrooms', 'bathrooms', 'surface', 'floors', 'waterfront', 'lat', 'long' , "grade", "zipcode", "condition", 'view']
+numeric_features = ['bedrooms', 'bathrooms', 'surface', 'floors', 'waterfront', 'lat', 'long']
 numeric_transformer = Pipeline([
     ('imputer', SimpleImputer(strategy='mean')),  # imputation des valeurs manquantes
     ('scaler', MinMaxScaler()),  # normalisation des données
 ])
 
 # On cree un pre-processeur pour les variables catégorielles
-categorial_features = []
-categorical_transformer = OneHotEncoder(sparse=True)
+categorial_features = ["zipcode" , "grade" , "condition" , 'view']
+categorical_transformer = OneHotEncoder(sparse=False , handle_unknown='ignore')
 
 # On crée un préprocesseur global pour les deux types de variables
 preprocessor = ColumnTransformer(
@@ -59,6 +59,7 @@ r2 = r2_score(y_test, y_pred)
 
 print(f'MAE : {mae}')
 print(f'R2 : {r2}')
+print(X_test.head(2))
 
 # sauvegarde du pipeline entraîné en tant que fichier pkl
 dump(trained_pipe, os.path.join(BASE_DIR, 'ia', 'ia.pkl'))
