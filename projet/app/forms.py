@@ -1,12 +1,59 @@
 from django import forms
+import pandas as pd
+
+df = pd.read_csv('app/ia/data/kc_house_data_clean_knn.csv')
 
 class PredictionForm(forms.Form):
-    bedrooms = forms.IntegerField(label='Nombre de chambres')
-    bathrooms = forms.FloatField(label='Nombre de salles de bain')
-    surface = forms.FloatField(label='Surface')
-    floors = forms.IntegerField(label='Nombre d\'étages')
+    # Définir les champs du formulaire pour les variables numériques
+    bedrooms = forms.IntegerField(label='Bedrooms')
+    bathrooms = forms.FloatField(label='Bathrooms')
+    surface = forms.IntegerField(label='Surface')
+    floors = forms.FloatField(label='Floors')
     waterfront = forms.BooleanField(required=False, label='Vue sur la mer')
-    view = forms.ChoiceField(choices=[('0', 'Aucune'), ('1', 'Faible'), ('2', 'Moyenne'), ('3', 'Bonne'), ('4', 'Très bonne')], label='Qualité de la vue')
-    condition = forms.ChoiceField(choices=[('1', 'Mauvaise'), ('2', 'Moyenne'), ('3', 'Bonne'), ('4', 'Très bonne'), ('5', 'Excellente')], label='État de la maison')
-    grade = forms.ChoiceField(choices=[('1', 'Faible'), ('2', 'Moyen'), ('3', 'Moyen+'), ('4', 'Bon'), ('5', 'Bon+'), ('6', 'Très bon'), ('7', 'Très bon+'), ('8', 'Excellent'), ('9', 'Excellent+'), ('10', 'Fantastique'), ('11', 'Fantastique+'), ('12', 'Paradisiaque')], label='Note de qualité générale de la maison')
-    price_per_sqft = forms.FloatField(label='Prix du pied carré')
+    lat = forms.FloatField(label='Latitude')
+    long = forms.FloatField(label='Longitude')
+        
+    GRADE_CHOICES = [
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5),
+        (6, 6),
+        (7, 7),
+        (8, 8),
+        (9, 9),
+        (10, 10),
+        (11, 11),
+        (12, 12),
+        (13, 13),
+        # Ajouter toutes les options de 'grade'
+    ]
+    grade = forms.ChoiceField(label='Grade', choices=GRADE_CHOICES)
+    
+    # Définir les champs du formulaire pour les variables catégorielles
+    zipcodes = sorted(df['zipcode'].unique())
+    ZIPCODE_CHOICES = [(zip, zip) for zip in zipcodes]
+    zipcode = forms.ChoiceField(label='Zipcode', choices=ZIPCODE_CHOICES)
+    
+    CONDITION_CHOICES = [
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5),
+        # Ajouter toutes les options de 'condition'
+    ]
+    condition = forms.ChoiceField(label='Condition', choices=CONDITION_CHOICES)
+    
+    VIEW_CHOICES = [
+        (0, 0),
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        # Ajouter toutes les options de 'view'
+    ]
+    view = forms.ChoiceField(label='View', choices=VIEW_CHOICES)
+   
+        
