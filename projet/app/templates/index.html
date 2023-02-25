@@ -6,24 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "style.css" %}">
-    <title>Index</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
+    <title>Prédiction immobilière Seattle</title>
 </head>
 <body>
-    <h1> Prédiction immobilière </h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-    <button type="submit" class="save btn btn-default">Valider</button>
-    </form>
-    <p>prix estimation :{{ result }}</p>
+    <header class="header">
+        <h1 class="title">Prédiction immobilière Seattle</h1>
+    </header>
+    <main class="main">
+        <section class="form-section">
 
-    <table>
-        {% for row in rows %}
-            <tr>
-            {% for column in row %}
-                <td>{{ column }}</td>
+                <form method="POST" class="form" id="prediction-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                <button type="submit" class="form-btn">Valider</button>
+                </form>
+            <div class="result-section">
+                {% if result %}
+                    <p class="result-label">Prix estimé :</p>
+                    <p class="result">{{ result }} $</p>
+                {% endif %}
+            </div>
+        </section>
+        <section class="map-section">
+            <div id="mapid" class="map"></div>
+        </section>
+        <table>
+            {% for row in rows %}
+                <tr>
+                {% for column in row %}
+                    <td>{{ column }}</td>
+                {% endfor %}
+                </tr>
             {% endfor %}
-            </tr>
-        {% endfor %}
-    </table>
+        </table>
+    </main>
+    <footer class="footer">
+        <p class="footer-text">© 2021 Prédiction immobilière Seattle. Tous droits réservés.</p>
+    </footer>
+    <script src="{% static 'main.js' %}"></script>
 </body>
 </html>
