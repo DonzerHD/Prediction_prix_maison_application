@@ -31,7 +31,7 @@ Le projet a été développé en utilisant les technologies suivantes :
 - Leaflet : pour la création de la carte interactive.
 
 # Utilisation
-L'application web permet aux utilisateurs souhaitant acheter ou vendre une maison d'estimer son prix en saisissant les informations relatives à la propriété. De plus, la carte interactive leur permet de sélectionner l'emplacement de la maison en entrant les coordonnées de latitude et de longitude.
+L'application web permet aux utilisateurs souhaitant acheter ou vendre une maison d'estimer son prix en saisissant les informations relatives à la propriété.De plus, la carte interactive permet également à l'utilisateur de sélectionner l'emplacement de la maison en cliquant sur la carte. Les coordonnées de latitude et de longitude correspondantes sont automatiquement saisies dans le formulaire de saisie.
 
 # Lancer le serveur de développement :
 - Exécutez la commande suivante pour démarrer le serveur de développement : `python manage.py runserver`
