@@ -1,9 +1,11 @@
 from django import forms
 import pandas as pd
 
+"""Charger le dataset"""
 df = pd.read_csv('app/ia/data/kc_house_data_clean_knn.csv')
 
 class PredictionForm(forms.Form):
+    """Formulaire de prédiction"""
     # Définir les champs du formulaire pour les variables numériques
     bedrooms = forms.IntegerField(label='Bedrooms' , widget=forms.TextInput(attrs={'class' : 'form-input'}))
     bathrooms = forms.FloatField(label='Bathrooms' , widget=forms.TextInput(attrs={'class' : 'form-input'}))

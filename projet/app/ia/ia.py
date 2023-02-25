@@ -11,6 +11,7 @@ from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import LinearRegression
 
+"""Charger le dataset"""
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 df = pd.read_csv(os.path.join(BASE_DIR, 'ia/data', 'kc_house_data_clean_knn.csv'))
 
@@ -57,6 +58,7 @@ y_pred = trained_pipe.predict(X_test)
 mae = mean_absolute_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
+"""Afficher les résultats"""
 print(f'MAE : {mae}')
 print(f'R2 : {r2}')
 print(X_test.head(2))
