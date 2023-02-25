@@ -1,5 +1,5 @@
 # Prédiction de prix immobiliers
-Ce projet vise à prédire les prix des maisons à partir de différentes variables telles que le nombre de chambres, de salles de bains, la superficie, etc. Le but est d'aider les acheteurs potentiels à estimer le prix d'une maison avant de l'acheter.
+Ce projet vise à prédire les prix des maisons à partir de différentes variables telles que le nombre de chambres, de salles de bains, la superficie, etc. Le but est d'aider les acheteurs potentiels à estimer le prix d'une maison avant de l'acheter, ainsi que les vendeurs à estimer le prix de leur propriété avant de la mettre en vente.
 
 Le projet utilise un ensemble de données provenant de King County, dans l'État de Washington, aux États-Unis. L'ensemble de données contient les informations sur les maisons vendues entre 2014 et 2015. Il contient des informations sur des maisons, chacune avec leurs caractéristiques.
 
@@ -31,7 +31,7 @@ Le projet a été développé en utilisant les technologies suivantes :
 - Leaflet : pour la création de la carte interactive.
 
 # Utilisation
-Une application web a été créée pour utiliser le modèle de prédiction. Elle permet à l'utilisateur de saisir les informations de la maison qu'il souhaite acheter et d'obtenir une estimation du prix. La carte interactive montre également l'emplacement des maisons vendues et la liste de toutes les maisons vendues.
+L'application web permet aux utilisateurs souhaitant acheter ou vendre une maison d'estimer son prix en saisissant les informations relatives à la propriété. De plus, la carte interactive leur permet de sélectionner l'emplacement de la maison en entrant les coordonnées de latitude et de longitude.
 
 # Lancer le serveur de développement :
 - Exécutez la commande suivante pour démarrer le serveur de développement : `python manage.py runserver`
