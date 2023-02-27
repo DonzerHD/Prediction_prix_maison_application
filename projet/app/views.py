@@ -27,7 +27,7 @@ def index(request):
         df = pd.DataFrame(data, index=[0])
         """Model prediction"""
         model = joblib.load(MODEL_FILEPATH)
-        result = model.predict(df)[0]
+        result = model.predict(df)[0].round(2)
     else:
         print('Form is not valid')
     context = {
