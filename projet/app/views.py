@@ -25,6 +25,7 @@ def index(request):
         model = joblib.load('app/ia/ia.pkl')
         result = model.predict(df)[0].round(2)
     else:
+        
         print('Form is not valid')
     context = {
         'form': form,
