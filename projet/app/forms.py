@@ -57,5 +57,6 @@ class PredictionForm(forms.Form):
     ]
     view = forms.TypedChoiceField(coerce=int , label='View', choices=VIEW_CHOICES , widget=forms.Select(attrs={'class' : 'form-select'}))
     
+    """Formulaire de localisation"""
     lat = forms.FloatField(label='Latitude', widget=forms.TextInput(attrs={'id': 'id_lat', 'readonly': 'readonly' ,'class' : 'form-input'}))
     long = forms.FloatField(label='Longitude', widget=forms.TextInput(attrs={'id': 'id_long', 'readonly': 'readonly' , 'class' : 'form-input'}))

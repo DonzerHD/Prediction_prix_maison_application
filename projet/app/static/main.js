@@ -30,3 +30,4 @@ function onMapClick(e) {
 
 /* Ajout d'un événement au clic sur la carte */
 mymap.on('click', onMapClick);
+

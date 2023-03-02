@@ -51,7 +51,7 @@ pipe = Pipeline([
 # Entrainement sur X_train
 trained_pipe = pipe.fit(X_train, y_train)
 
-# Faire des prédictions sur le jeu de test
+# Faire des prédictions sur le jeu de test0
 y_pred = trained_pipe.predict(X_test)
 
 # Calculer les métriques d'évaluation
